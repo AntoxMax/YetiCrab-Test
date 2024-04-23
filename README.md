@@ -4,6 +4,7 @@
 
 1. `npm run install`
 2. `npm run start`
+3. Перейти на http://localhost:5173/
 
 ## Стэк
 
