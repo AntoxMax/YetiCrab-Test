@@ -1,6 +1,6 @@
-#Тестовое задание YetiCrab
+# Тестовое задание YetiCrab
 
-##Установка
+## Установка
 
 1. `npm run install`
 2. `npm run start`
