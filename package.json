@@ -1,0 +1,13 @@
+{
+	"scripts": {
+		"start:frontend": "cd frontend && npm run dev",
+		"start:backend": "cd backend && npm run start:dev",
+		"start": "npm run start:frontend & npm run start:backend",
+		"build:frontend": "cd frontend && npm run build",
+		"build:backend": "cd backend && npm run build",
+		"build": "npm run build:frontend && npm run build:backend",
+		"install:frontend": "cd frontend && npm i",
+		"install:backend": "cd backend && npm i && npx prisma migrate",
+		"install": "npm run install:frontend & npm run install:backend"
+	}
+}

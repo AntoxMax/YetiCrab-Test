@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+enum Status {
+  NEW
+  IN_PROGRESS
+  FINISH
+}
+
+model Application {
+  id         Int       @id @default(autoincrement())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  status     Status    @default(NEW)
+  comments   Comment[]
+  Customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId Int
+  Carrier    Carrier?  @relation(fields: [carrierId], references: [id])
+  carrierId  Int
+}
+
+model Customer {
+  id           Int           @id @default(autoincrement())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  name         String        @unique
+  applications Application[]
+}
+
+model Carrier {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  phone     String
+  ati       Int
+
+  applications Application[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content       String
+  Application   Application? @relation(fields: [applicationId], references: [id])
+  applicationId Int
+}

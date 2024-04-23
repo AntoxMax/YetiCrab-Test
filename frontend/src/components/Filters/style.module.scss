@@ -1,0 +1,14 @@
+.subhead {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filters {
+    margin-bottom: 15px;
+
+    &__item {
+        width: 150px;
+    }
+}
