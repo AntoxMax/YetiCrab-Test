@@ -7,5 +7,5 @@
 
 ## Стэк
 
-backend: Nest + Prisma + PostgreSQL
-frontend: React + TS + ReduxTK + react-router
+1. backend: Nest + Prisma + PostgreSQL
+2. frontend: React + TS + ReduxTK + react-router
